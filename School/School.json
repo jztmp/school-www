@@ -1,0 +1,459 @@
+﻿{
+
+    CSS : "School.css",
+
+    JS : "School.js",
+
+    earth : false,
+
+    title : "City of Madison, Alabama",
+
+    url : {
+        api:'http://localhost:8008/mapguide/api/SQL_SERVICE/sqlMap/',
+        api2:'http://localhost:8008/mapguide/api/execute',
+        service:'http://localhost:8008/mapguide/api/',
+        map:''
+    },
+    markDisDrag : true,
+
+    numberField : {
+		"PROPTAX":7,
+		"DEEDEDACRE":5,
+		"CALCACRES":5,
+		"AREA":5,
+		"ACREAGE":5,
+		"HECTARES":5,
+		"ACRES":5
+    },
+    before : function(){
+        Sparknet.map.moulton.action.before();
+    },
+
+    after : function(){
+        Sparknet.map.moulton.action.after();
+    },
+
+    address_form : {
+        iconCls :'address_form',
+        id : "address_form",
+        items : [{
+                    fieldLabel: '',
+                    name: 'FeatId',
+                    id : 'FeatId_T',
+                    hidden:true,
+                    value: ''
+                },{
+                    fieldLabel: 'Address',
+                    name: 'ADDRESS',
+                    id : 'ADDRESS_T',
+                    value: ''
+                },{
+                    fieldLabel: 'Parcel Number',
+                    name: 'PARCELNUMB',
+                    id : 'PARCELNUMB_T',
+                    value: ''
+                },{
+                    fieldLabel: 'Madison City Limit',
+                    name: 'IN_LIMIT',
+                    id : 'IN_LIMIT_T',
+                    value: ''
+                },{
+                    fieldLabel: 'County',
+                    name: 'COUNTY',
+                    id : 'COUNTY_T',
+                    value: ''
+                },{
+                    fieldLabel: 'Street Number',
+                    name: 'STREET_NUM',
+                    id : 'STREET_NUM_T',
+                    value: ''
+                },{
+                    fieldLabel: 'Street Name',
+                    name: 'STREET_NAM',
+                    id : 'STREET_NAM_T',
+                    value: ''
+                }
+        ]
+    },
+
+    parcel_form : {
+        iconCls :'parcel_form',
+        id : "parcel_form",
+        items : [{
+                    fieldLabel: '',
+                    name: 'FeatId',
+                    id : 'FeatId_T2',
+                    hidden:true,
+                    value: ''
+                },{
+                    fieldLabel: 'Property Pin',
+                    name: 'PROPIN',
+                    id : 'PROPIN_T2',
+                    value: ''
+                },{
+                    fieldLabel: 'Parcel Number',
+                    name: 'PARCELNUMB',
+                    id : 'PARCELNUMB_T2',
+                    value: ''
+                },{
+                    fieldLabel: 'Owner',
+                    name: 'OWNER',
+                    id : 'OWNER_T2',
+                    value: ''
+                },{
+                    fieldLabel: 'Address',
+                    name: 'ADDRESS',
+                    id : 'ADDRESS_T2',
+                    value: ''
+                }, {
+                    fieldLabel: 'Street Number',
+                    name: 'STREET_NUM',
+                    id : 'STREET_NUM_T2',
+                    value: ''
+                }, {
+                    fieldLabel: 'Street Name',
+                    name: 'STREET_NAM',
+                    id : 'STREET_NAM_T2',
+                    value: ''
+                }, {
+                    fieldLabel: 'Mail Address',
+                    name: 'MAILADDR',
+                    id : 'MAILADDR_T2',
+                    value: ''
+                }, {
+                    fieldLabel: 'City',
+                    name: 'CITY',
+                    id : 'CITY_T2',
+                    value: ''
+                },{
+					xtype : 'combo',
+					store:new Ext.data.SimpleStore({
+                    fields: ['id','name'],
+                    data : [[' ',' '],['AL','AL'],['AR','AR'],['AZ','AZ'],['CA','CA']
+                    ,['CO','CO'],['CT','CT'],['FL','FL'],['GA','GA']
+                    ,['IA','IA'],['IL','IL'],['IN','IN'],['KY','KY']
+                    ,['LA','LA'],['MI','MI'],['MN','MN'],['MS','MS']
+                    ,['MT','MT'],['NC','NC'],['NE','NE'],['OH','OH']
+                    ,['OK','OK'],['ON','ON'],['PA','PA'],['SC','SC']
+                    ,['TN','TN'],['TX','TX'],['VA','VA'],['VT','VT']
+                    ,['WA','WA']]
+					}),
+					fieldLabel: 'State',
+					displayField:'name',
+					valueField : 'id',
+					typeAhead:false,
+					triggerAction:'all',
+					mode:'local',
+					autoShow : true,
+					selectOnFocus : false,
+					autoCreate : true,
+					name: 'STATE',
+					id : 'STATE_T2'
+				},{
+                    fieldLabel: 'ZIP',
+                    name: 'ZIP',
+                    id : 'ZIP_T2',
+                    value: ''
+                },{
+                    fieldLabel: 'Property Tax',
+                    name: 'STREET_NAM',
+                    id : 'STREET_NAM_T2',
+                    value: ''
+                },{
+                    fieldLabel: 'Property Value',
+                    name: 'PROPTAX',
+                    id : 'PROPTAX_T2',
+                    value: ''
+                },{
+                    fieldLabel: 'Area',
+                    name: 'AREA',
+                    id : 'AREA_T2',
+                    value: ''
+                },{
+                    fieldLabel: 'Perimeter',
+                    name: 'PERIMETER',
+                    id : 'PERIMETER_T2',
+                    value: ''
+                },{
+                    fieldLabel: 'Acreage',
+                    name: 'ACREAGE',
+                    id : 'ACREAGE_T2',
+                    value: ''
+                },{
+                    fieldLabel: 'Hectares',
+                    name: 'HECTARES',
+                    id : 'HECTARES_T2',
+                    value: ''
+                },{
+                    xtype : 'combo',
+                    store:new Ext.data.SimpleStore({
+                        fields: ['id','name'],
+                        data : [['YES','YES'],['NO','NO']]
+                    }),
+                    fieldLabel: 'CityLimit',
+                    displayField:'name',
+                    valueField : 'id',
+                    typeAhead:false,
+                    triggerAction:'all',
+                    mode:'local',
+                    autoShow : true,
+                    selectOnFocus : false,
+                    autoCreate : true,
+                    name: 'CITYLIMIT',
+                    id : 'CITYLIMIT_T2'
+                },{
+                    fieldLabel: 'County',
+                    name: 'COUNTY',
+                    id : 'COUNTY_T2',
+                    value: ''
+                },{
+                xtype : 'combo',
+                store:new Ext.data.SimpleStore({
+                    fields: ['id','name'],
+                    data : [['AG','AG'],['B-1','B-1'],['B-2','B-2'],['B-2/S-1','B-2/S-1'],['B-3','B-3'],['HUNTSVILLE','HUNTSVILLE']
+                    ,['M-1','M-1'],['M-2','M-2'],['MC','MC'],['MU','MU'],['OUT','OUT'],['PUD','PUD'],['R-1A','R-1A'],['R-1B','R-1B'],['R-2','R-2'],['R-3','R-3']
+                    ,['R-3A','R-3A'],['R-4','R-4'],['RC-2','RC-2'],['RZ','RZ']]
+                }),
+                fieldLabel: 'Zone',
+                displayField:'name',
+                valueField : 'id',
+                typeAhead:false,
+                triggerAction:'all',
+                mode:'local',
+                autoShow : true,
+                selectOnFocus : false,
+                autoCreate : true,
+                name: 'ZONE',
+                listeners : {
+                select : function(){
+
+                    }
+                },
+                id : 'ZONE_T2'
+            },{
+                    fieldLabel: 'School',
+                    name: 'SCHOOLZONE',
+                    id : 'SCHOOLZONE_T2',
+                    value: ''
+                },{
+                    fieldLabel: 'SubDivName',
+                    name: 'SUBDIVNAME',
+                    id : 'SUBDIVNAME_T2',
+                    value: ''
+                },{
+                    fieldLabel: 'SubDivBlock',
+                    name: 'SUBDIV_BLO',
+                    id : 'SUBDIV_BLO_T2',
+                    value: ''
+                },{
+                    fieldLabel: 'SubDivLot',
+                    name: 'SUBDIV_LOT',
+                    id : 'SUBDIV_LOT_T2',
+                    value: ''
+                }
+        ]
+    },
+
+    search_panel : {
+            page_numner : 30,
+            iconCls : 'search_panel',
+            id : 'search_panel',
+            store : {
+                root: 'topics',
+                totalProperty: 'totalCount',
+                idProperty : 'FeatId',
+                    fields: [
+						{name: 'FeatId'},
+						{name: 'ADDRESS'},
+						{name: 'PARCELNUMB'},
+						{name: 'IN_LIMIT'},
+						{name: 'COUNTY'},
+						{name: 'STREET_NUM'},
+						{name: 'STREET_NAM'},
+						{name: 'ZONE'},
+						{name: 'OWNER'},
+						{name: 'MAILADD1'},
+						{name: 'MAILADD2'},
+						{name: 'MAILADD3'},
+						{name: 'PROPIN', type: 'int'},
+						{name: 'CITY'},
+						{name: 'STATE'},
+						{name: 'ZIP'},
+						{name: 'MAILZIP2'},
+						{name: 'PROPTAX'},
+						{name: 'PROPADDR'},
+						{name: 'DEEDEDACRE'},
+						{name: 'CALCACRES'},
+						{name: 'AREA'},
+						{name: 'PERIMETER'},
+						{name: 'ACREAGE', type: 'float'},
+						{name: 'SCHOOLZONE'},
+						{name: 'HECTARES', type: 'float'},
+						{name: 'MAILADDR'},
+						{name: 'COUNTY'},
+						{name: 'TAX_DISTRI'},
+						{name: 'SUBDIV'},
+						{name: 'SUBDIV_LOT'},
+						{name: 'SUBDIV_BLO'},
+						{name: 'SUBDIVNAME'},
+						{name: 'SOURCETHM'},
+						{name: 'ACRES', type: 'float'},
+						{name: 'CITYLIMIT'},
+						{name: 'comm1'},
+						{name: 'comm2'}
+                    ]
+            },
+            selectModels : [{
+                            header: 'Parcel Number',
+                            dataIndex: 'PARCELNUMB',
+                            width: 300,
+                            renderer:function(val){return Sparknet.map.moulton.action.nulltoEmpty(val)},
+                            sortable: true
+                        }
+            ],
+            colModels : [
+                        [{
+                            header: 'PPIN',
+                            dataIndex: 'PROPIN',
+                            width: 300,
+                            renderer:function(val){return Sparknet.map.moulton.action.nulltoEmpty(val)},
+                            sortable: true
+                        },{
+                            header: 'Owner',
+                            dataIndex: 'OWNER',
+                            width: 300,
+                            renderer:function(val){return Sparknet.map.moulton.action.nulltoEmpty(val)},
+                            sortable: true
+                        },{
+                            header: 'Prop Address',
+                            dataIndex: 'PROPADDR',
+                            width: 300,
+                            renderer:function(val){return Sparknet.map.moulton.action.nulltoEmpty(val)},
+                            sortable: true
+                        },{
+                            header: 'Mail Address',
+                            dataIndex: 'MAILADDR',
+                            width: 300,
+                            renderer:function(val){return Sparknet.map.moulton.action.nulltoEmpty(val)},
+                            sortable: true
+                        },{
+                            header: 'City',
+                            dataIndex: 'CITY',
+                            width: 300,
+                            renderer:function(val){return Sparknet.map.moulton.action.nulltoEmpty(val)},
+                            sortable: true
+                        },{
+                            header: 'State',
+                            dataIndex: 'STATE',
+                            width: 300,
+                            renderer:function(val){return Sparknet.map.moulton.action.nulltoEmpty(val)},
+                            sortable: true
+                        },{
+                            header: 'ZIP',
+                            dataIndex: 'ZIP',
+                            width: 300,
+                            renderer:function(val){return Sparknet.map.moulton.action.nulltoEmpty(val)},
+                            sortable: true
+                        },{
+                            header: 'SubDiv Name',
+                            dataIndex: 'SUBDIVNAME',
+                            width: 300,
+                            renderer:function(val){return Sparknet.map.moulton.action.nulltoEmpty(val)},
+                            sortable: true
+                        },{
+                            header: 'Map',
+                            dataIndex: 'FeatId',
+                            width: 100,
+                            renderer:function(val){return Sparknet.map.moulton.action.showMapIcon(val)},
+                            sortable: true
+                        }
+						],						
+						[{
+                            header: 'Street Number',
+                            dataIndex: 'STREET_NUM',
+                            width: 300,
+                            renderer:function(val){return Sparknet.map.moulton.action.nulltoEmpty(val)},
+                            sortable: true
+                        },{
+                            header: 'Street Name',
+                            dataIndex: 'STREET_NAM',
+                            width: 300,
+                            renderer:function(val){return Sparknet.map.moulton.action.nulltoEmpty(val)},
+                            sortable: true
+                        },{
+                            header: 'Madison City Limit',
+                            dataIndex: 'IN_LIMIT',
+                            width: 300,
+                            renderer:function(val){return Sparknet.map.moulton.action.nulltoEmpty(val)},
+                            sortable: true
+                        },{
+                            header: 'County',
+                            dataIndex: 'COUNTY',
+                            width: 300,
+                            renderer:function(val){return Sparknet.map.moulton.action.nulltoEmpty(val)},
+                            sortable: true
+                        },{
+                            header: 'Map',
+                            dataIndex: 'FeatId',
+                            width: 100,
+                            renderer:function(val){return Sparknet.map.moulton.action.showMapIcon(val)},
+                            sortable: true
+                        }
+						]
+
+            ],
+            tbar : [
+                    new Ext.form.ComboBox({
+                    store: new Ext.data.ArrayStore({
+                        fields: ['id','name'],
+                        data : [['ADDRESS','Address Number'],['STREET_NAM','Street Name'],['OWNER','Property Owner’s Last Name'],['PROPIN','Property PIN'],['SUBDIVNAME','Subdiv Name']]
+                    }),
+                    displayField:'name',
+                    valueField:'id',
+                    typeAhead: true,
+                    mode: 'local',
+                    value : 'ADDRESS',
+                    id : 'typeCombox',
+                    forceSelection: true,
+                    triggerAction: 'all',
+                    emptyText:'Select a state...',
+                    selectOnFocus:true
+                    }),{
+                        xtype :"textfield",
+                        width : "400",
+                        id :  "anyWords"
+                    },{
+                        text: 'Search',
+                        handler: function(){
+                            Sparknet.map.moulton.action.query();
+                        },
+                        iconCls: 'search'
+                    }],
+                    rowdblclick : function(grid,rowIndex,e){
+                        Sparknet.map.moulton.action.rowdblclick(grid,rowIndex,e);
+                    },
+                    rowclick : function(grid,rowIndex,e){
+                        Sparknet.map.moulton.action.rowclick(grid,rowIndex,e);
+                    },
+                    infor : function(grid,rowIndex,e){
+                        Sparknet.map.moulton.action.infor(grid,rowIndex,e);
+                    },
+
+
+
+    },
+
+    GPS_TIME_ZONE : {
+             Summer : {
+                   end : "09/06/2014",
+                   base : 5
+             },
+            Winter : {
+                    end : "12/31/2015",
+                    base : 6
+            }
+     }
+
+
+
+}

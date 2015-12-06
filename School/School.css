@@ -1,0 +1,85 @@
+.show_track{
+    background-image: url(icon/chart_line.png) !important;
+}
+.search {
+    background-image: url(icon/zoom.png) !important;
+}
+.chat{
+    background-image: url(icon/chat.png) !important;
+}
+.add_address{
+    background-image: url(icon/add.png) !important;
+}
+.add_user{
+    background-image: url(icon/adduser.png) !important;
+}
+.user_panel{
+    background-image: url(icon/user_male.png) !important;
+}
+.search_panel{
+     background-image: url(icon/page_white_magnify.png) !important;
+ }
+.bus_panel{
+    background-image: url(icon/bus.png) !important;
+}
+.school_panel{
+    background-image: url(icon/school.png) !important;
+}
+
+.student_panel{
+    background-image: url(icon/student.png) !important;
+}
+.show_location{
+    background-image: url(icon/map_magnify.png) !important;
+}
+.save_default{
+    background-image: url(icon/disc.png) !important;
+}
+.assigned_bus{
+    background-image: url(icon/assigned_bus.png) !important;
+}
+.notice{
+    background-image: url(icon/notice.png) !important;
+}
+
+.address_form{
+	background-image: url(icon/application_form_add.png) !important;
+}
+.parcel_form{
+	background-image: url(icon/application_home.png) !important;
+}
+.map_edit{
+    background-image: url(icon/map_edit.png) !important;
+}
+.delete{
+    background-image: url(icon/delete.png) !important;
+}
+.driver_panel{
+    background-image: url(icon/group_error.png) !important;
+}
+
+
+.x-form-map-wrap {
+    position: relative;
+    height: 22px;
+}
+.x-form-map-wrap .x-form-map {
+    position: absolute;
+    right: 0;
+    -moz-opacity: 0;
+    filter:alpha(opacity: 0);
+    opacity: 0;
+    z-index: 2;
+    height: 22px;
+}
+.x-form-map-wrap .x-form-map-btn {
+    position: absolute;
+    right: 0;
+    z-index: 1;
+}
+.x-form-map-wrap .x-form-map-text {
+    position: absolute;
+    left: 0;
+    z-index: 3;
+    color: #777;
+}

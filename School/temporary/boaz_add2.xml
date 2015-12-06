@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LayerDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:noNamespaceSchemaLocation="LayerDefinition-1.1.0.xsd" version="1.1.0">
+  <VectorLayerDefinition>
+    <ResourceId></ResourceId>
+    <FeatureName>boaz_add2</FeatureName>
+    <FeatureNameType>FeatureClass</FeatureNameType>
+    <Filter />
+    <PropertyMapping>
+      <Name>FeatId</Name>
+      <Value>FeatId</Value>
+    </PropertyMapping>
+    <PropertyMapping>
+      <Name>ADDRESS</Name>
+      <Value>ADDRESS</Value>
+    </PropertyMapping>
+    <PropertyMapping>
+      <Name>PARCELNUMB</Name>
+      <Value>PARCELNUMB</Value>
+    </PropertyMapping>
+    <PropertyMapping>
+      <Name>IN_LIMIT</Name>
+      <Value>IN_LIMIT</Value>
+    </PropertyMapping>
+    <PropertyMapping>
+      <Name>COUNTY</Name>
+      <Value>COUNTY</Value>
+    </PropertyMapping>
+    <PropertyMapping>
+      <Name>STREET_NUM</Name>
+      <Value>STREET_NUM</Value>
+    </PropertyMapping>
+    <PropertyMapping>
+      <Name>STREET_NAM</Name>
+      <Value>STREET_NAM</Value>
+    </PropertyMapping>
+    <Geometry>Geometry</Geometry>
+    <Url />
+    <ToolTip />
+   <VectorScaleRange>
+      <MinScale>0</MinScale>
+      <PointTypeStyle>
+        <DisplayAsText>false</DisplayAsText>
+        <AllowOverpost>true</AllowOverpost>
+        <PointRule>
+          <LegendLabel />
+          <PointSymbolization2D>
+             <Mark>
+              <Unit>Inches</Unit>
+              <SizeContext>DeviceUnits</SizeContext>
+              <SizeX>0.4</SizeX>
+              <SizeY>0.4</SizeY>
+              <Rotation>0</Rotation>
+              <Shape>Triangle</Shape>
+              <Fill>
+                <FillPattern>Solid</FillPattern>
+                <ForegroundColor>ff00ff40</ForegroundColor>
+                <BackgroundColor>ff00ff40</BackgroundColor>
+              </Fill>
+              <Edge>
+                <LineStyle>Solid</LineStyle>
+                <Thickness>50</Thickness>
+                <Color>ffff0000</Color>
+                <Unit>Points</Unit>
+                <SizeContext>DeviceUnits</SizeContext>
+              </Edge>   
+            </Mark>
+          </PointSymbolization2D>
+        </PointRule>
+      </PointTypeStyle>  
+    </VectorScaleRange>
+  </VectorLayerDefinition>
+</LayerDefinition>
