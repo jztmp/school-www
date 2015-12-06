@@ -142,6 +142,7 @@
 			}
 
 			function showPosition(position) {
+			    //alert(position.coords.latitude + ',' + position.coords.longitude);
 			    api.getODB2GPS(position.coords.latitude,position.coords.longitude);
 			}
 			function getgps(){

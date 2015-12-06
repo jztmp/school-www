@@ -101,7 +101,8 @@ function displayInfo(data,num){
 	var nowStr = dt.format("hh:mm:ss MM-dd");
 	
 	var distance = data['DISTANCE'].toFixed(1);
-	if (distance > 20){
+	
+	if (distance > 1){
 		return;
 	}
 	
